@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Booking Form HTML Template</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	<style>
+		ul {
+			list-style: none;
+		}
+
+		li {
+			font-size: 2em;
+			font-family: raleway, sans-serif;
+			color: #fff;
+			padding-right: 3vh;
+		}
+
+		li:hover {
+			font-size: 2.2em;
+			text-decoration: none;
+		}
+
+		* {
+			font-family: Raleway, sans-serif;
+		}
+	</style>
+
+</head>
+
+<body>
+	<!-- <div id = "now">
+		<script>
+		date = new Date().toLocaleDateString();
+		document.write(date);
+		</script>
+	</div> -->
+	<div>
+		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ff8846;">
+			<!-- Container wrapper -->
+			<div class="container-fluid">
+				<!-- Collapsible wrapper -->
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+					<!-- Left links -->
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" href="animate.html" style="color: #fff; text-decoration: none;">Home Page </a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#"  style="color: #fff;text-decoration: none;">Book slot </a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#"  style="color: #fff;text-decoration: none;">Log out </a>
+						</li>
+					</ul>
+					<!-- Left links -->
+				</div>
+			</div>
+			<!-- Container wrapper -->
+		</nav>
+		<!--navbar end-->
+	</div>
+	<form action="https://d376-14-139-82-6.in.ngrok.io/register" method="post">
+		<div class="form-book">
+			<div id="booking" class="section">
+				<div class="section-center">
+					<div class="container">
+						<div class="row">
+							<div class="booking-form">
+								<div class="form-header">
+									<h1>Register</h1>
+								</div>
+								<form>
+									<div class="form-group">
+										<input class="form-control" type="text" placeholder="Username" name="username" id="username">
+										<span class="form-label">Username</span>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<input class="form-control" type="email"
+													placeholder="Enter your IIIT Email">
+												<span class="form-label">Email</span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<input class="form-control" type="password" name="password" placeholder="Password" id="password">
+												<span class="form-label">Password</span>
+											</div>
+										</div>
+									</div>
+									<div class="form-btn">
+										<button class="submit-btn">Book Now</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<script src="js/jquery.min.js"></script>
+	<script>
+		$('.form-control').each(function () {
+			floatedLabel($(this));
+		});
+
+		$('.form-control').on('input', function () {
+			floatedLabel($(this));
+		});
+
+		function floatedLabel(input) {
+			var $field = input.closest('.form-group');
+			if (input.val()) {
+				$field.addClass('input-not-empty');
+			} else {
+				$field.removeClass('input-not-empty');
+			}
+		}
+		const today = new Date()
+		datePickerId.min = new Date().toISOString().split("T")[0];
+		let maxy = new Date()
+		maxy.setDate(today.getDate() + 4)
+		datePickerId.max = maxy.toISOString().split("T")[0];
+
+	</script>
+
+</body>
+
+</html>

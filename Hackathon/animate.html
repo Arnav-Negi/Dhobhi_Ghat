@@ -10,178 +10,170 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-
+    	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <title>Document</title>
 
     <style type="text/css">
-        /* ============ desktop view ============ */
-        @media all and (min-width: 992px) {
-
-            .sidebar li {
-                position: relative;
-            }
-
-            .sidebar li .submenu {
-                display: none;
-                position: absolute;
-                left: 100%;
-                top: -7px;
-                min-width: 240px;
-            }
-
-            [dir=rtl] .sidebar li .submenu {
-                right: 100%;
-                left: auto;
-            }
-
-            .sidebar li:hover {
-                background: var(--bs-light);
-            }
-
-            .sidebar li:hover>.submenu {
-                display: block;
-            }
-
+        .sidebar li .submenu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
-
-        /* ============ desktop view .end// ============ */
-
-
-        /* ============ small devices ============ */
-        @media (max-width: 991px) {
-
-            .sidebar .submenu,
-            .sidebar .dropdown-menu {
-                position: static !important;
-                margin-left: 0.7rem;
-                margin-right: 0.7rem;
-                margin-bottom: .5rem;
-            }
-
-        }
-
-        /* ============ small devices .end// ============ */
-
 
         .sidebar .nav-link {
             font-weight: 500;
-            color: var(--bs-dark);
+            color: #fff;
         }
 
         .sidebar .nav-link:hover {
-            background: var(--bs-light);
-            color: var(--bs-primary);
+            color: #ff8846;
         }
-    </style>
+
+        a,p,h1,h3,li {
+            font-family: Raleway, sans-serif;
+        }
+        ul {
+			list-style: none;
+		}
+
+		a#nav {
+			font-size: 2em;
+			font-family: raleway, sans-serif;
+			color: #fff;
+			padding: 8px;
+			margin: 3px;
+		}
+
+		a#nav:hover {
+			font-size: 2.2em;
+			text-decoration: none;
+		}
+
+		* {
+			font-family: Raleway, sans-serif;
+		}
+        </style>
 
     <script type="text/javascript">
-        window.addEventListener("resize", function () {
-            "use strict"; window.location.reload();
-        });
-
         document.addEventListener("DOMContentLoaded", function () {
-            // make it as accordion for smaller screens
-            if (window.innerWidth < 992) {
 
-                document.querySelectorAll('.sidebar .nav-link').forEach(function (element) {
+            document.querySelectorAll('.sidebar .nav-link').forEach(function (element) {
 
-                    element.addEventListener('click', function (e) {
+                element.addEventListener('click', function (e) {
 
-                        let nextEl = element.nextElementSibling;
-                        let parentEl = element.parentElement;
-                        let allSubmenus_array = parentEl.querySelectorAll('.submenu');
+                    let nextEl = element.nextElementSibling;
+                    let parentEl = element.parentElement;
 
-                        if (nextEl && nextEl.classList.contains('submenu')) {
-                            e.preventDefault();
-                            if (nextEl.style.display == 'block') {
-                                nextEl.style.display = 'none';
+                    if (nextEl) {
+                        e.preventDefault();
+                        let mycollapse = new bootstrap.Collapse(nextEl);
 
-                            } else {
-                                nextEl.style.display = 'block';
+                        if (nextEl.classList.contains('show')) {
+                            mycollapse.hide();
+                        } else {
+                            mycollapse.show();
+                            // find other submenus with class=show
+                            var opened_submenu = parentEl.parentElement.querySelector('.submenu.show');
+                            // if it exists, then close all of them
+                            if (opened_submenu) {
+                                new bootstrap.Collapse(opened_submenu);
                             }
 
                         }
-                    });
-                })
-            }
-            // end if innerWidth
+                    }
 
-        });
-	// DOMContentLoaded  end
+                });
+            })
+
+        }); 
     </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
 </head>
 
-<body class="bg-light">
-    <!--<div class="sketchfab-embed-wrapper"> <iframe title="DhobiGhat" frameborder="0" allowfullscreen
-            mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
-            xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="1500"
-            height="650"
-            src="https://sketchfab.com/models/72b8502f4b5842ee8686334fcc77d3e7/embed?autostart=1&ui_theme=dark%22%3E">
-            </iframe>
-            <p style="
-            font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a
-                    href="https://sketchfab.com/3d-models/dhobighat-72b8502f4b5842ee8686334fcc77d3e7?utm_medium=embed&utm_campaign=share-popup&utm_content=72b8502f4b5842ee8686334fcc77d3e7"
-                    target="_blank" style="font-weight: bold; color: #1CAAD9;"> DhobiGhat </a> by <a
-                    href="https://sketchfab.com/RedJohn1712?utm_medium=embed&utm_campaign=share-popup&utm_content=72b8502f4b5842ee8686334fcc77d3e7"
-                    target="_blank" style="font-weight: bold; color: #1CAAD9;"> RedJohn1712 </a> on <a
-                    href="https://sketchfab.com/?utm_medium=embed&utm_campaign=share-popup&utm_content=72b8502f4b5842ee8686334fcc77d3e7"
-                    target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p>
-    </div>-->
-
+<body class="bg-light" style="padding: 5 rem;background-image: url('img/site-back.jpg'); background-repeat: no-repeat; background-size: cover; 
+    color: #fff;">
     <div>
-        <section class="section-content py-3">
+		<nav class="navbar-fixed-top navbar-expand-lg navbar-dark" style="background-color: #ff8846;">
+			<!-- Container wrapper -->
+			<div class="container-fluid">
+				<!-- Collapsible wrapper -->
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+					<!-- Left links -->
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" href="animate.html" id="nav" style="color: #fff; text-decoration: none;">Home Page </a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" id="nav" style="color: #fff;text-decoration: none;">Book slot </a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" id="nav" style="color: #fff;text-decoration: none;">Log out </a>
+						</li>
+					</ul>
+					<!-- Left links -->
+				</div>
+			</div>
+			<!-- Container wrapper -->
+		</nav>
+		<!--navbar end-->
+	</div>
+    <br>
+
+    <div class="section-content py-3" style="width:100vw; height: 15%;">
+        <h1 style="text-align: center; font-size: 4em;">Welcome to booking system</h1>
+    </div>
+    <div style="padding: 5rem; font-size: 2em; border: 1em; width: 100%;background-color: rgba(0, 0, 0, 0);">
+        <section class="section-content py-3" style="background-color: rgba(0, 0, 0, 0);">
             <div class="row">
                 <aside class="col-lg-3">
                     <!-- ============= COMPONENT ============== -->
-                    <nav class="sidebar card py-2 mb-4">
-                        <ul class="nav flex-column">
+                    <nav class="sidebar card py-2 mb-4" style="background-color: rgba(0, 0, 0, 0); border: none;">
+                        <ul class="nav flex-column" id="nav_accordion">
                             <li class="nav-item">
-                                <a class="nav-link" style="font-size: larger;"> IIIT Washing machine registration </a>
+                                <a class="nav-link">IIIT Washing Machine Booking</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"> Submenu links <b class="float-end">&raquo;</b> </a>
-                                <ul class="submenu dropdown-menu">
-                                    <li><a class="nav-link" href="#">Submenu item 1 </a></li>
-                                    <li><a class="nav-link" href="#">Submenu item 2 </a></li>
-                                    <li><a class="nav-link" href="#">Submenu item 3 </a>
+                            <li class="nav-item has-submenu">
+                                <a class="nav-link" href="#"> Choose Hostel </a>
+                                <ul class="submenu collapse">
+                                    <li><a class="nav-link" href="https://d376-14-139-82-6.in.ngrok.io/slots">Bakul</a>
+                                    </li>
+                                    <li><a class="nav-link" href="https://d376-14-139-82-6.in.ngrok.io/slots">Parijaat
+                                        </a></li>
+                                    <li><a class="nav-link" href="https://d376-14-139-82-6.in.ngrok.io/slots">OBH </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"> Treeview category <b class="float-end">&raquo;</b> </a>
-                                <ul class="submenu dropdown-menu">
-                                    <li><a class="nav-link" href="#">Submenu item 1 </a></li>
-                                    <li><a class="nav-link" href="#">Submenu item 2 </a></li>
-                                    <li><a class="nav-link" href="#">Submenu item 3 <b class="float-end">&raquo;</b>
-                                        </a>
-                                        <ul class="submenu dropdown-menu">
-                                            <li><a class="nav-link" href="#">Multi level 1</a></li>
-                                            <li><a class="nav-link" href="#">Multi level 2</a></li>
-                                            <li><a class="nav-link" href="#">Multi level 3</a></li>
-                                        </ul>
-                                    </li>
+                            <li class="nav-item has-submenu">
+                                <a class="nav-link" href="#">Contacts </a>
+                                <ul class="submenu collapse">
+                                    <li><a class="nav-link" href="#">Website</a></li>
+                                    <li><a class="nav-link" href="#">Washing machine technician</a></li>
+                                    <li><a class="nav-link" href="#">Inquiry </a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"> Register </a>
+                                <a class="nav-link" href="register.html"> Register</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"> Demo link </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"> Menu item </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"> Something </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"> Other link </a>
-                            </li>
+
                         </ul>
                     </nav>
                     <!-- ============= COMPONENT END// ============== -->
                 </aside>
                 <main class="col-lg-9">
+                    <h3>Instructions to use</h3>
+                    <p>
+                    <ol style="font-size: 0.8em;">
+                        <li>Register with your email if you haven't before.</li>
+                        <li>Choose your hostel from the sidebar. You will be redirected to the hostel's booking site.
+                        </li>
+                        <li>Choose a slot when a machine is free and book it.</li>
+                    </ol>
+                    </p>
             </div>
 </body>
 
