@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Round Calendar</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700"><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+
+  <div class="calendar">
+
+    <header>
+
+      <h2>Today</h2>
+
+      <a class="btn-prev fontawesome-angle-left" href="#"></a>
+      <a class="btn-next fontawesome-angle-right" href="#"></a>
+
+    </header>
+
+    <table id = "mytable">
+
+      <!-- <thead>
+
+        <tr>
+
+          <td>Mo</td>
+          <td>Tu</td>
+          <td>We</td>
+          <td>Th</td>
+          <td>Fr</td>
+          <td>Sa</td>
+          <td>Su</td>
+
+        </tr>
+
+      </thead> -->
+
+      <tbody>
+
+        <tr id = "r1">
+          <td></td>
+          <td id = "00:00" >00</td>
+          <td id = "01:00">01</td>
+          <td id = "02:00">02</td>
+          <td id = "03:00">03</td>
+          <td id = "04:00">04</td>
+          <td id = "05:00">05</td>
+        </tr>
+        <tr id = "r2">
+          <td></td>
+          <td id = "06:00">06</td>
+          <td id = "07:00">07</td>
+          <td id = "08:00">08</td>
+          <td id = "09:00">09</td>
+          <td id = "10:00">10</td>
+          <td id = "11:00">11</td>
+        </tr>
+        <tr id = "r3">
+          <td></td>
+          <td id = "12:00">12</td>
+          <td id = "13:00">13</td>
+          <td id = "14:00">14</td>
+          <td id = "15:00">15</td>
+          <td id = "16:00">16</td>
+          <td id = "17:00">17</td>
+        </tr>
+        <tr id = "r4">
+          <td></td>
+          <td id = "18:00">18</td>
+          <td id = "19:00">19</td>
+          <td id = "20:00">20</td>
+          <td id = "21:00">21</td>
+          <td id = "22:00">22</td>
+          <td id = "23:00">23</td>
+          <!-- <td>24</td> -->
+          <!-- <td class="event">21</td>
+          <td>22</td> -->
+        </tr>
+
+        <!-- <tr>
+          <td class="current-day event">23</td>
+          <td>24</td>
+          <td>25</td>
+          <td>26</td>
+          <td>27</td>
+          <td>28</td>
+          <td>29</td>
+        </tr>
+        <tr>
+          <td>30</td>
+          <td class="next-month">1</td>
+          <td class="next-month">2</td>
+          <td class="next-month">3</td>
+          <td class="next-month">4</td>
+          <td class="next-month">5</td>
+          <td class="next-month">6</td>
+        </tr> -->
+
+      </tbody>
+
+    </table>
+
+  </div> <!-- end calendar -->
+
+</div> <!-- end container -->
+<!-- partial -->
+  
+<script type="text/javascript">
+  //let x  = document.getElementById("mytable");
+  //let y  = x.document.getElementById("r1");
+
+  // let z = document.getElementById("free1");
+  
+  // //z.style.color = "#d74535";
+  // z.style['background-color'] ="#d74535";
+
+
+  function display()
+            {
+                var xmlHttp = new XMLHttpRequest();
+                const arr=["00:00",
+    "01:00",
+    "02:00",
+    "03:00",
+    "04:00",
+    "05:00",
+    "06:00",
+    "07:00",
+    "08:00",
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00",
+    "22:00",
+    "23:00"];
+                xmlHttp.onreadystatechange=function()
+                {
+                    alert(xmlHttp.readyState);
+                    if(xmlHttp.readyState==4)
+                    {
+                      alert(
+                        "lmao"
+                      );
+                      alert(xmlHttp.status);
+                      if(xmlHttp.status==200)
+                      {
+                        alert(xmlHttp.status);
+                      /*  const str=xmlHttp.responseText;
+                        alert(str);
+                        for(let i=0;i<24;i=i+1)
+                        {
+                            let col=document.getElementById(arr[i]);
+                            //alert(col);
+                            if(str[i].toString()=="1")
+                            {
+                                col.style['background-color']="#d74535";
+                            }
+                            else
+                            {
+                               col.style['background-color']="#60c52e";
+                            }
+                        }*/
+                      }
+                    } 
+                }
+                xmlHttp.open("GET","https://d376-14-139-82-6.in.ngrok.io/lmao",true);
+                xmlHttp.send(null);
+            }
+                display();
+
+</script>
+
+
+</body>
+</html>
